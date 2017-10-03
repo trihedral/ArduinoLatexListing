@@ -1,0 +1,57 @@
+\documentclass[12pt]{article} % increase font size
+
+\usepackage{listings}					% for creating language style
+\input{arduinoLanguage.tex}		% adds the arduino language
+
+%% Define an Arduino style fore use later %%
+\lstdefinestyle{myArduino}{
+  language=Arduino,
+  %% Add other words needing highlighting below %%
+  morekeywords=[1]{},									% dark green
+  morekeywords=[2]{FILE_WRITE},				% light blue
+  morekeywords=[3]{SD, File},					% bold orange
+  morekeywords=[4]{open, exists},			% orange
+  %% The lines below add a nifty box around the code %%
+  frame=shadowbox,                    
+  rulesepcolor=\color{arduinoBlue},
+}
+
+\begin{document}
+
+\section{SD Card Example}
+Below is a snippet of arduino code.  It was added  via the input of the external
+ file arduinoLanguage.tex.  A custom style was then created at the top of this
+ file so that the non-built-in functions and classes like SD and open() would highlight
+ properly.  The style also adds the pretty box around the code.\\
+
+\begin{lstlisting}[style=myArduino]
+#include <SD.h>
+
+File logfile;
+byte logPin = 10;
+
+void setup() {
+  SD.begin(logPin);
+
+  ///////// Create a new file //////////
+  char filename[] = "LOGGER00.CSV";
+  for (int i = 0; i < 100; i++) {
+    filename[6] = i/10 + '0';    // number the file
+    filename[7] = i%10 + '0';    //
+    if ( SD.exists(filename)==false ) { // only open a new file if it doesn't exist
+      logfile = SD.open(filename, FILE_WRITE); 
+      break;  // leave the loop!
+    }
+  }
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  logfile.println("Hello");
+  logfile.flush();
+  delay(1000);
+}
+\end{lstlisting}
+
+
+\end{document}
