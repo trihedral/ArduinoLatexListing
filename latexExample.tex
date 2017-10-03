@@ -1,16 +1,16 @@
 \documentclass[12pt]{article} % increase font size
 
-\usepackage{listings}					% for creating language style
-\input{arduinoLanguage.tex}		% adds the arduino language
+\usepackage{listings}          % for creating language style
+\input{arduinoLanguage.tex}    % adds the arduino language
 
 %% Define an Arduino style fore use later %%
 \lstdefinestyle{myArduino}{
   language=Arduino,
   %% Add other words needing highlighting below %%
-  morekeywords=[1]{},									% dark green
-  morekeywords=[2]{FILE_WRITE},				% light blue
-  morekeywords=[3]{SD, File},					% bold orange
-  morekeywords=[4]{open, exists},			% orange
+  morekeywords=[1]{},                  % dark green
+  morekeywords=[2]{FILE_WRITE},        % light blue
+  morekeywords=[3]{SD, File},          % bold orange
+  morekeywords=[4]{open, exists},      % orange
   %% The lines below add a nifty box around the code %%
   frame=shadowbox,                    
   rulesepcolor=\color{arduinoBlue},
