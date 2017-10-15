@@ -16,14 +16,14 @@ In your document, place your arduino code between:
 ``` 
   
   
-Or create your own style to make changes like adding non-built-in functions and variables:
+Or create your own style to make changes like adding non-built-in functions and variables.  Before ```\begin{document}``` in your latex file, place:
 ``` TeX
   \lstdefinestyle{myArduino}{  
     language=Arduino,  
     %% make listing changes here %%  
   }  
  ``` 
-And place your arduino code between:
+And in your document place your arduino code between:
 ``` TeX
   \begin{lstlisting}[style=myArduino]  
     %% arduino code here %%  
