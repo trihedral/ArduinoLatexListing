@@ -16,7 +16,7 @@ In your document, place your arduino code between:
 ``` 
   
   
-Or create your own style to make changes like adding non-built-in functions and variables.  Before ```\begin{document}``` in your latex file, place:
+Or create your own style to make changes like adding non-built-in functions and variables.  After ```\input{arduinoLanguage.tex}```, but before ```\begin{document}```, place:
 ``` TeX
   \lstdefinestyle{myArduino}{  
     language=Arduino,  
