@@ -1,4 +1,4 @@
-# AdruinoLatexListing
+# ArduinoLatexListing
 A project to enable Arduino IDE syntax highlighting in LaTeX
   
 Place arduinoLanguage.tex file in your working directory (next to the latex file you're working on).  
