@@ -1,18 +1,18 @@
 \documentclass[12pt]{article} % increase font size
 
 \usepackage{listings}          % for creating language style
-\input{arduinoLanguage.tex}    % adds the arduino language
+\input{arduinoLanguage.tex}    % adds the arduino language listing
 
 %% Define an Arduino style fore use later %%
 \lstdefinestyle{myArduino}{
   language=Arduino,
   %% Add other words needing highlighting below %%
-  morekeywords=[1]{},                  % dark green
-  morekeywords=[2]{FILE_WRITE},        % light blue
-  morekeywords=[3]{SD, File},          % bold orange
-  morekeywords=[4]{open, exists},      % orange
+  morekeywords=[1]{},                  % [1] -> dark green
+  morekeywords=[2]{FILE_WRITE},        % [2] -> light blue
+  morekeywords=[3]{SD, File},          % [3] -> bold orange
+  morekeywords=[4]{open, exists},      % [4] -> orange
   %% The lines below add a nifty box around the code %%
-  frame=shadowbox,                    
+  frame=shadowbox,
   rulesepcolor=\color{arduinoBlue},
 }
 
@@ -22,7 +22,8 @@
 Below is a snippet of arduino code.  It was added  via the input of the external
  file arduinoLanguage.tex.  A custom style was then created at the top of this
  file so that the non-built-in functions and classes like SD and open() would highlight
- properly.  The style also adds the pretty box around the code.\\
+ properly.  The style also adds the pretty box around the code.  To see how this was
+ accomplished, check out latexExample.tex. \\
 
 \begin{lstlisting}[style=myArduino]
 #include <SD.h>
@@ -39,7 +40,7 @@ void setup() {
     filename[6] = i/10 + '0';    // number the file
     filename[7] = i%10 + '0';    //
     if ( SD.exists(filename)==false ) { // only open a new file if it doesn't exist
-      logfile = SD.open(filename, FILE_WRITE); 
+      logfile = SD.open(filename, FILE_WRITE);
       break;  // leave the loop!
     }
   }
